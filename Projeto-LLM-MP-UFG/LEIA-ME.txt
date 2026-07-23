@@ -1,0 +1,43 @@
+======================================================
+  Projeto LLM - Ministério Público / UFG
+  Atendimento e Suporte de TI
+======================================================
+
+Versão do Python: 3.14.3
+Sistema Operacional: Windows 10 (NT 10.0.19045)
+
+------------------------------------------------------
+Descrição
+------------------------------------------------------
+Chatbot de atendimento e suporte de TI do Ministério
+Público, utilizando RAG (Retrieval-Augmented Generation)
+com LLM Llama 3.3 70B via API Groq.
+
+------------------------------------------------------
+Como executar
+------------------------------------------------------
+1. Crie e ative um ambiente virtual:
+   python -m venv .venv
+   .venv\Scripts\activate
+
+2. Instale as dependências:
+   pip install -r requirements.txt
+
+3. Configure a variável de ambiente no arquivo .env:
+   GROQ_API_KEY=sua_chave_aqui
+
+4. Execute o aplicativo:
+   streamlit run app.py
+
+5. Acesse no navegador:
+   http://localhost:8501
+
+------------------------------------------------------
+Estrutura do Projeto
+------------------------------------------------------
+├── app.py                  - Aplicação principal Streamlit
+├── .env                    - Chave da API Groq
+├── requirements.txt        - Dependências do projeto
+├── LEIA-ME.txt             - Este arquivo
+└── documentos/
+    └── Manual_TI_Consolidado.pdf - Base de conhecimento

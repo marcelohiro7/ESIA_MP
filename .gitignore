@@ -1,0 +1,15 @@
+# Virtual environment
+.venv/
+
+# Environment variables (secrets)
+.env
+
+# IDE
+.vscode/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# FAISS index (large binary files - optional, remove this line if you want to include them)
+# index_faiss/
