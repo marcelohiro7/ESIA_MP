@@ -15,12 +15,12 @@ import os
 
 load_dotenv()
 
-# --- Configuração da página ---
+# --- Configuração da página - Visual inicial da LLM ---
 _icon = Image.open(Path(__file__).parent / "mp.png")
 st.set_page_config(page_title="Atendimento e Suporte de TI do Ministério Público", page_icon=_icon)
 st.title("Atendimento e Suporte de TI - Ministério Público")
 
-# --- Configurações ---
+# --- Configurações das paths ---
 llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0.7, max_retries=2)
 
 DOCS_PATH = str(Path(__file__).parent / "documentos")
@@ -33,7 +33,7 @@ Se for uma dúvida comum, sugira uma solução alternativa possível.
 Mantenha a resposta concisa. Responda em português."""
 
 
-# --- Funções ---
+# --- Funções da página ---
 def carregar_documentos(pasta):
     """Carrega documentos PDF da pasta informada."""
     docs_path = Path(pasta)
@@ -106,7 +106,7 @@ def chat(rag_chain, pergunta, historico):
     return res
 
 
-# --- Inicialização de estado ---
+# --- Inicialização da LLM com o usuário ---
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = [
         AIMessage(content="Olá! Sou o assistente de TI do MP. Como posso ajudar?")
@@ -116,7 +116,7 @@ if "rag_chain" not in st.session_state:
     retriever = configurar_retriever(DOCS_PATH)
     st.session_state.rag_chain = configurar_rag(llm, retriever)
 
-# --- Exibir histórico ---
+# --- Exibição do histórico ---
 for msg in st.session_state.chat_history:
     if isinstance(msg, AIMessage):
         with st.chat_message("AI", avatar="🏛️"):
@@ -125,7 +125,7 @@ for msg in st.session_state.chat_history:
         with st.chat_message("Human", avatar="👤"):
             st.write(msg.content)
 
-# --- Input do usuário ---
+# --- Entrada do usuário ---
 pergunta = st.chat_input("Digite sua mensagem...")
 if pergunta:
     with st.chat_message("Human", avatar="👤"):
