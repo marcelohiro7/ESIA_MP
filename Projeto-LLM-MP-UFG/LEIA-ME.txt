@@ -41,3 +41,5 @@ Estrutura do Projeto
 ├── LEIA-ME.txt             - Este arquivo
 └── documentos/
     └── Manual_TI_Consolidado.pdf - Base de conhecimento
+
+Projeto desenvolvido por Marcelo Hiroaki Ito e Max Flávio Cabral para o projeto final de Engenharia de Software para IA
